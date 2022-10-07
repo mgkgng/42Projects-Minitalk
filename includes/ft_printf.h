@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_bonus.h                                  :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: min-kang <minguk.gaang@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/15 18:50:36 by min-kang          #+#    #+#             */
-/*   Updated: 2022/10/07 18:00:01 by min-kang         ###   ########.fr       */
+/*   Updated: 2022/10/07 20:00:15 by min-kang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdarg.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include "libft.h"
 
 /* flag corresponding to a prime number
 - : 2
@@ -68,12 +69,5 @@ int	print_unsigned(unsigned int n, t_spec spec);
 int	ft_nbrlen(long long int n, int base);
 int	print_precis_nbr(int precis, int len);
 int	print_nbr_len(long long int n, t_spec spec, int base);
-
-/* libft */
-int		ft_atoi(const char *str);
-int		ft_isdigit(int c);
-char	*ft_strchr(char *s, char c);
-char	*ft_strdup(char *s);
-int		ft_strlen(char *s);
 
 #endif

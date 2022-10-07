@@ -5,33 +5,31 @@ SRCS_SERVER = server/main.c
 OBJS_CLIENT = ${SRCS_CLIENT:.c=.o}
 OBJS_SERVER = ${SRCS_SERVER:.c=.o}
 
-NAME =	libftprintf.a
+NAME = minitalk
 
 INCLUDES = ./includes/
 
 LIB_PATH = ./libft_printf/
+LIB = ./libft_printf/libftprintf.a
 
-CFLAGS =	-Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 
-all:		${NAME}
+all: server
 
-# ${NAME}:	${OBJS_CLIENT} ${OBJS_SERVER}
-# 			make all -C ${LIB_PATH}
-# 			cp libft_printf/libftprintf.a ${NAME}
-# 			ar rc ${NAME} ${OBJS}
+server: ${OBJS_SERVER}
+		make all -C ${LIB_PATH}
+		gcc ${CFLAGS} -I${INCLUDES} -o ${NAME} ${OBJS_SERVER} libft_printf/libftprintf.a
 
 .c.o:
-			gcc ${CFLAGS} -I${INCLUDES} -c $< -o ${<:.c=.o}
+		gcc ${CFLAGS} -I${INCLUDES} -c $< -o ${<:.c=.o}
 
 clean:
-			rm -f ${OBJS_CLIENT} ${OBJS_SERVER}
-			make clean -C ${LIB_PATH}
+		rm -rf ${OBJS_SERVER}
+		make clean -C ${LIB_PATH}
 
 fclean:		clean
-			rm -f ${NAME}
+			rm -rf ${NAME} ${LIB}
 
 re: fclean all
 
 .PHONY: all bonus clean fclean re
-
-.PHONY : 

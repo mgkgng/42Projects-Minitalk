@@ -1,22 +1,21 @@
-SRCS =	srcs/ft_printf_srcs.c \
-		srcs/ft_printf_utils_srcs.c \
-		srcs/get_srcs.c \
-		srcs/print_srcs.c \
-		srcs/print_utils_srcs.c \
-		srcs/print_c_srcs.c \
-		srcs/print_d_srcs.c \
-		srcs/print_p_srcs.c \
-		srcs/print_s_srcs.c \
-		srcs/print_u_srcs.c \
-		srcs/print_x_srcs.c \
-		srcs/width_srcs.c \
-		srcs/libft.c
+SRCS =	srcs/ft_printf.c \
+		srcs/ft_printf_utils.c \
+		srcs/get.c \
+		srcs/print.c \
+		srcs/print_utils.c \
+		srcs/print_c.c \
+		srcs/print_d.c \
+		srcs/print_p.c \
+		srcs/print_s.c \
+		srcs/print_u.c \
+		srcs/print_x.c \
+		srcs/width.c \
 
 OBJS =	${SRCS:.c=.o}
 
 NAME =	libftprintf.a
 
-INCLUDES = ./includes/
+INCLUDES = ../includes/
 
 LIB_PATH = ./libft/
 

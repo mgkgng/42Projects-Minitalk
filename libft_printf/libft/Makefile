@@ -9,7 +9,7 @@ NAME = libft.a
 
 OBJS = ${SRCS:.c=.o}
 
-INCLUDES = ../includes/
+INCLUDES = ../../includes/
 
 CFLAG = -Wextra -Wall -Werror 
 
