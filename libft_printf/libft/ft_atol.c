@@ -1,24 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: min-kang <minguk.gaang@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/07 18:18:52 by min-kang          #+#    #+#             */
-/*   Updated: 2022/10/08 12:13:10 by min-kang         ###   ########.fr       */
+/*   Created: 2022/04/30 20:46:23 by min-kang          #+#    #+#             */
+/*   Updated: 2022/10/08 12:05:51 by min-kang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
+#include "libft.h"
 
-# include <signal.h>
+long int	ft_atol(const char *str)
+{
+	long int	res;
+	int			i;
+	int			minus;
 
-# include "libft.h"
-# include "ft_printf.h"
-
-# define PID_MAX_32 32768
-# define PID_MAX_64 4194304
-
-# endif
+	i = 0;
+	minus = 1;
+	res = 0;
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ')
+		i++;
+	if (str[i] == '-')
+	{
+		minus *= -1;
+		i++;
+	}
+	else if (str[i] == '+')
+		i++;
+	while (str[i] && ft_isdigit(str[i]))
+		res = res * 10 + (str[i++] - '0');
+	return (res * minus);
+}

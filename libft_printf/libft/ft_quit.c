@@ -1,24 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_quit.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: min-kang <minguk.gaang@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/07 18:18:52 by min-kang          #+#    #+#             */
-/*   Updated: 2022/10/08 12:13:10 by min-kang         ###   ########.fr       */
+/*   Created: 2022/10/08 11:38:53 by min-kang          #+#    #+#             */
+/*   Updated: 2022/10/08 11:51:57 by min-kang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
+#include "libft.h"
 
-# include <signal.h>
-
-# include "libft.h"
-# include "ft_printf.h"
-
-# define PID_MAX_32 32768
-# define PID_MAX_64 4194304
-
-# endif
+void	ft_quit(char *msg)
+{
+	ft_putendl_fd(msg, 2);
+	exit(0);
+}

@@ -6,11 +6,13 @@
 /*   By: min-kang <minguk.gaang@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 18:19:44 by min-kang          #+#    #+#             */
-/*   Updated: 2022/10/07 18:19:54 by min-kang         ###   ########.fr       */
+/*   Updated: 2022/10/08 11:37:50 by min-kang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CLIENT_H
 # define CLIENT_H
+
+# include "minitalk.h"
 
 # endif

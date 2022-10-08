@@ -1,11 +1,11 @@
-SRCS_CLIENT = client/main.c
-
-SRCS_SERVER = server/main.c
+SRCS_CLIENT = srcs/client/main.c
+SRCS_SERVER = srcs/server/main.c
 
 OBJS_CLIENT = ${SRCS_CLIENT:.c=.o}
 OBJS_SERVER = ${SRCS_SERVER:.c=.o}
 
-NAME = minitalk
+NAME_CLIENT = client
+NAME_SERVER = server
 
 INCLUDES = ./includes/
 
@@ -14,21 +14,26 @@ LIB = ./libft_printf/libftprintf.a
 
 CFLAGS = -Wall -Wextra -Werror
 
-all: server
+all: lib client server
 
-server: ${OBJS_SERVER}
+lib:
 		make all -C ${LIB_PATH}
-		gcc ${CFLAGS} -I${INCLUDES} -o ${NAME} ${OBJS_SERVER} libft_printf/libftprintf.a
+
+client: ${OBJS_CLIENT}
+		gcc ${CFLAGS} -I${INCLUDES} -o ${NAME_CLIENT} ${OBJS_CLIENT} libft_printf/libftprintf.a
+		
+server: ${OBJS_SERVER}
+		gcc ${CFLAGS} -I${INCLUDES} -o ${NAME_SERVER} ${OBJS_SERVER} libft_printf/libftprintf.a
 
 .c.o:
 		gcc ${CFLAGS} -I${INCLUDES} -c $< -o ${<:.c=.o}
 
 clean:
-		rm -rf ${OBJS_SERVER}
+		rm -rf ${OBJS_SERVER} ${OBJS_SERVER}
 		make clean -C ${LIB_PATH}
 
-fclean:		clean
-			rm -rf ${NAME} ${LIB}
+fclean:	clean
+		rm -rf ${NAME} ${LIB}
 
 re: fclean all
 
