@@ -20,20 +20,20 @@ lib:
 		make all -C ${LIB_PATH}
 
 client: ${OBJS_CLIENT}
-		gcc ${CFLAGS} -I${INCLUDES} -o ${NAME_CLIENT} ${OBJS_CLIENT} libft_printf/libftprintf.a
+		gcc ${CFLAGS} -I${INCLUDES} -o ${NAME_CLIENT} ${OBJS_CLIENT} ${LIB}
 		
 server: ${OBJS_SERVER}
-		gcc ${CFLAGS} -I${INCLUDES} -o ${NAME_SERVER} ${OBJS_SERVER} libft_printf/libftprintf.a
+		gcc ${CFLAGS} -I${INCLUDES} -o ${NAME_SERVER} ${OBJS_SERVER} ${LIB}
 
 .c.o:
 		gcc ${CFLAGS} -I${INCLUDES} -c $< -o ${<:.c=.o}
 
 clean:
-		rm -rf ${OBJS_SERVER} ${OBJS_SERVER}
+		rm -rf ${OBJS_CLIENT} ${OBJS_SERVER}
 		make clean -C ${LIB_PATH}
 
 fclean:	clean
-		rm -rf ${NAME} ${LIB}
+		rm -rf ${NAME_CLIENT} ${NAME_SERVER} ${LIB}
 
 re: fclean all
 
